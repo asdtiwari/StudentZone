@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        
+        <title> Add New Student </title>
+        
+        <style>
+            .body{
+                background-color: darkslategrey;
+                color: antiquewhite;
+                font-family: cursive;
+                font-style: oblique;
+            }
+            
+            .a{
+                text-decoration: none;
+                color: antiquewhite;
+            }
+            
+            .nav{
+                position: fixed;
+                top: 0vh;
+                right: 5vh;
+                text-align: right;
+            }
+            
+            .home{
+                position: fixed;
+                top: 0vh;
+                text-align: left;
+                left: 0vh;
+            }
+            
+            .nav_li{
+                display: inline;
+                border: solid 0.1vh grey;
+                border-radius: 5vh;
+                margin-right: 1vh;
+                padding-left: 1vh;
+                padding-right: 1vh;
+                padding-top: 0vh;
+                font-size: 1.7vh;
+            }
+            
+            .nav_li:hover{
+                background-color: darkgoldenrod;
+                border: solid 0.5vh whitesmoke;
+                font-size: 110%
+            }
+            
+            .nav_a:hover{
+                color: black;
+            }
+            
+            .header{
+                margin-top: 10vh;
+            }
+            
+            .header:hover{
+                color: darkgoldenrod;
+            }
+            
+            .form{
+                border: outset 1vh darkgoldenrod;
+                border-top-left-radius: 5vh;
+                border-bottom-right-radius: 5vh;
+                width: 75vh;
+                margin-top: 10vh;
+                margin-bottom: 10vh;
+                padding: 10vh;
+            }
+            
+            .form:hover{
+                border-style: inset;
+            }
+            
+            .tr:hover{
+                background: grey;
+            }
+            
+            .th{
+                text-align: center;
+                border-top-left-radius: 5vh;
+                border-bottom-left-radius: 5vh;
+                padding-left: 5vh;
+                padding-right: 5vh;
+            }
+            
+            .td{
+                text-align: left;
+                border-top-right-radius: 5vh;
+                border-bottom-right-radius: 5vh;
+                padding-left: 5vh;
+                padding-right: 5vh;
+            }
+            
+            .required::before{
+                content: "*";
+                color: red;
+            }
+            
+            .speffect{
+                text-align: center;
+            }
+            
+            .speffect:hover{
+                border: solid 2px darkgoldenrod;
+                border-radius: 20px;
+                padding: 0.5vh;
+            }
+            
+            .footer{
+                bottom: 0px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .footer:hover{
+                color: darkgoldenrod;
+            }
+        </style>
+    </head>
+    
+    <body class="body">
+        <ul class="home">
+            <li class="nav_li"> <a class="nav_a a" href="/student/index" method="get"> Home </a> </li>
+        </ul>
+        
+        <ul class="nav">
+			<li class="nav_li"> <a class="nav_a a" href="/student/viewInfo" method="get" > Student Details </a> </li>
+			<li class="nav_li"> <a class="nav_a a" href="/student/showAllInfo" method="get"> All Students </a> </li>
+			<li class="nav_li"> <a class="nav_a a" href="/student/register" method="get"> Add New Student </a> </li>
+			<li class="nav_li"> <a class="nav_a a" href="/student/update" method="get"> Update Details </a> </li>
+			<li class="nav_li"> <a class="nav_a a" href="/student/remove" method="get"> Remove Student </a> </li>
+		</ul>
+        
+        <center> <big> <h1 class="header"> Student Zone </h1> </big> </center>
+        
+        <center> 
+            <form class="form" action="/student/registered" method="post">
+                 <h3> Fill the following Details </h3>
+                <table>
+                    <tr class="tr">
+                        <th class="th required"> Enrolment Id </th>
+                        <td class="td"> <input class="speffect" type="text" name="id" required placeholder="Enrolment ID" pattern="[a-z A-Z 0-9]{12,13}" title="Enter Valid Enrolment"> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th required"> Name </th>
+                        <td class="td"> <input class="speffect" type="text" name="name" required placeholder="Name" pattern="[a-z A-Z ]{3,30}" title="Enter name"> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th"> Father's Name </th>
+                        <td class="td"> <input class="speffect" type="text" name="father" placeholder="Father's Name" pattern="[a-z A-Z]{3,30}" title="Enter Father's Name"> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th"> Mother's Name </th>
+                        <td class="td"> <input class="speffect" type="text" name="mother" placeholder="Mother's Name" pattern="[a-z A-Z]{3,30}" title="Enter Mother's Name"> </td>
+                    </tr>	
+
+                    <tr class="tr">
+                        <th class="th required"> Birth's Date </th>
+                        <td class="td"> <input name="dob" class="speffect" required type="date" min="1975-01-01"> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th required"> Gender </th>
+                        <td class="td"> <input class="speffect" type="radio" required name="sex" value="Male"> M
+                                        <input class="speffect" type="radio" required name="sex" value="Female"> F
+                                        <input class="speffect" type="radio" required name="sex" value="Others"> O </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th required"> Category </th>
+                        <td class="td"> <select class="speffect" name="category" required title="Category">
+                                        <option> Category </option>
+                                        <option> UR </option>
+                                        <option> SC </option>
+                                        <option> ST </option>
+                                        <option> OBC </option>
+                                        </select> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th required"> Phone No </th>
+                        <td class="td"> <input class="speffect" type="text" required placeholder="Phone Number" name="phone" pattern="^[6-9]{1}[0-9]{9}$" title="Exclude Country Code"> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th"> Email ID </th>
+                        <td class="td">  <input class="speffect" type="email" placeholder="Email Address" name="email" pattern="[a-zA-Z0-9$%^]+@[a-zA-Z]+.[a-z]{2,3}" title="Valid Email Address only"> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th required"> Course </th>
+                        <td class="td"> <input class="speffect" type="text" name="course" required placeholder="Course" pattern="[a-z A-Z]{2,30}" title="Enter Course"> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th required"> Branch </th>
+                        <td class="td"> <input class="speffect" type="text" name="branch" required placeholder="Branch" pattern="[a-z A-Z]{2,30}" title="Pursuing Brach"> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th required"> Semester </th>
+                        <td class="td">  <input class="speffect" type="number" name="semester" placeholder="Semester" required min="1" max="8" title="Current Semester"> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th"> Address </th>
+                        <td class="td"> <textarea class="speffect" name="address" title="Enter Address" placeholder="Address" rows="1"> </textarea> </td>
+                    </tr>
+
+                    <tr class="tr">
+                        <th class="th"> PinCode </th>
+                        <td class="td"> <input class="speffect" type="Pin Code" placeholder="Pin Code" name="pin" pattern="[0-9]{6}$" title="Enter Pin Code"> </td>
+                    </tr>
+
+                </table>
+                
+                <br>
+                <input class="speffect" type="reset">
+                <input class="speffect" type="submit" value="Add Student"/>
+            </form>	
+        </center>
+		
+        <h3 class = "footer"> Thanks for your Trust <br> <a class="a nav_a" href="https://in.linkedin.com/in/asdtiwari/"> ©® ASD Tiwari </a> </h3>
+    </body>
+</html>

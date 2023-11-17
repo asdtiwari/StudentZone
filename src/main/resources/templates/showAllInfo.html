@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        
+        <title> Students Details </title>
+        
+        <style>
+            .body{
+                background-color: darkslategrey;
+                color: antiquewhite;
+                font-family: cursive;
+                font-style: oblique;
+            }
+            
+            .a{
+                text-decoration: none;
+                color: antiquewhite;
+            }
+            
+            .nav{
+                position: fixed;
+                top: 0vh;
+                right: 5vh;
+                text-align: right;
+            }
+            
+            .home{
+                position: fixed;
+                top: 0vh;
+                text-align: left;
+                left: 0vh;
+            }
+            
+            .nav_li{
+                display: inline;
+                border: solid 0.1vh grey;
+                border-radius: 5vh;
+                margin-right: 1vh;
+                padding-left: 1vh;
+                padding-right: 1vh;
+                padding-top: 0vh;
+                font-size: 1.7vh;
+            }
+            
+            .nav_li:hover{
+                background-color: darkgoldenrod;
+                border: solid 0.5vh whitesmoke;
+                font-size: 110%
+            }
+            
+            .nav_a:hover{
+                color: black;
+            }
+            
+            .header{
+                margin-top: 10vh;
+            }
+            
+            .header:hover{
+                color: darkgoldenrod;
+            }
+            
+            .table{
+                border: outset 1vh darkgoldenrod;
+                border-radius: 2vh;
+                margin-top: 10vh;
+                margin-bottom: 10vh;
+                padding: 5vh;
+                font-size: 2vh;
+                width: 100%;
+            }
+            
+            .table:hover{
+                border-style: inset;
+            }
+            
+            .ul{
+                list-style-type: none;
+            }
+            
+            .tr:hover{
+                background-color: coral;
+            }
+            
+            .td{
+                padding-left: 2vh;
+                padding-right: 2vh;
+            }
+            
+            .footer{
+                bottom: 0px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .footer:hover{
+                color: darkgoldenrod;
+            }
+        </style>
+    </head>
+    
+    <body class="body">
+        <ul class="home">
+            <li class="nav_li"> <a class="nav_a a" href="/student/index" method="get"> Home </a> </li>
+        </ul>
+        
+        <ul class="nav">
+			<li class="nav_li"> <a class="nav_a a" href="/student/viewInfo" method="get" > Student Details </a> </li>
+			<li class="nav_li"> <a class="nav_a a" href="/student/showAllInfo" method="get"> All Students </a> </li>
+			<li class="nav_li"> <a class="nav_a a" href="/student/register" method="get"> Add New Student </a> </li>
+			<li class="nav_li"> <a class="nav_a a" href="/student/update" method="get"> Update Details </a> </li>
+			<li class="nav_li"> <a class="nav_a a" href="/student/remove" method="get"> Remove Student </a> </li>
+		</ul>
+        
+        <center> <big> <h1 class="header"> Student Zone </h1> </big> </center>
+        
+        <center> 
+            <form>
+                <table class="table">
+                    <tr class="tr">
+                        <th class="th"> Enrolment Id </th>
+                        <th class="th"> Name </th>
+                        <th class="th"> Father </th>
+                        <th class="th"> Mother </th>
+                        <th class="th"> DOB </th>
+                        <th class="th"> Sex </th>
+                        <th class="th"> Category </th>
+                        <th class="th"> Phone </th>
+                        <th class="th"> Email </th>
+                        <th class="th"> Course </th>
+                        <th class="th"> Branch </th>
+                        <th class="th"> Semester </th>
+                        <th class="th"> Address </th>
+                        <th class="th"> PinCode </th>
+                    </tr>
+
+                    <tr class="tr" th:each="list : ${sList}">
+                        <td class="td" th:text="${list.id}"></td>
+                        <td class="td" th:text="${list.name}"> </td>
+                        <td class="td" th:text="${list.father}"> </td>
+                        <td class="td" th:text="${list.mother}"> </td>
+                        <td class="td" th:text="${list.dob}"> </td>
+                        <td class="td" th:text="${list.sex}"> </td>
+                        <td class="td" th:text="${list.category}"> </td>
+                        <td class="td" th:text="${list.phone}"> </td>
+                        <td class="td" th:text="${list.email}"> </td>
+                        <td class="td" th:text="${list.course}"> </td>
+                        <td class="td" th:text="${list.branch}"> </td>
+                        <td class="td" th:text="${list.semester}"> </td>
+                        <td class="td" th:text="${list.address}"> </td>
+                        <td class="td" th:text="${list.pin}"> </td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+		
+        <h3 class = "footer"> Thanks for your Trust <br> <a class="a nav_a" href="https://in.linkedin.com/in/asdtiwari/"> ©® ASD Tiwari </a> </h3>
+    </body>
+</html>
